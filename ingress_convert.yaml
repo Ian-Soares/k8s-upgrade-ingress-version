@@ -1,0 +1,114 @@
+--- 
+### dev-websites-example
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: dev-websites-public
+  namespace: dev-website-example
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/load-balancer-name: dev-websites-pub
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80, "HTTPS": 443}]'
+    alb.ingress.kubernetes.io/success-codes: 200,301,302
+spec:
+  rules:
+    - host: dev-www.example.com.br
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: dev-www-example
+              servicePort: 3000
+
+--- 
+### hml-websites-example
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hml-websites-public
+  namespace: hml-website-example
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/load-balancer-name: hml-websites-pub
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80, "HTTPS": 443}]'
+    alb.ingress.kubernetes.io/success-codes: 200,301,302
+spec:
+  rules:
+    - host: hml-www.example.com.br
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: hml-www-example
+              servicePort: 3000
+
+---
+### prd-website-example
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: prd-websites-public
+  namespace: prd-website-example
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/load-balancer-name: prd-websites-pub
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80, "HTTPS": 443}]'
+    alb.ingress.kubernetes.io/success-codes: 200,301,302
+spec:
+  rules:
+    - host: prd-www.example.com.br
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: prd-www-example
+              servicePort: 3000
+  
+--- 
+### hml2-websites-example
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hml2-websites-public
+  namespace: hml-website-example
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/load-balancer-name: hml2-websites-pub
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80, "HTTPS": 443}]'
+    alb.ingress.kubernetes.io/success-codes: 200,301,302
+spec:
+  rules:
+    - host: hml2-www.example.com.br
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: hml2-www-example
+              servicePort: 3000
+
+---
+### prd2-website-example
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: prd2-websites-public
+  namespace: prd-website-example
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/load-balancer-name: prd2-websites-pub
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80, "HTTPS": 443}]'
+    alb.ingress.kubernetes.io/success-codes: 200,301,302
+spec:
+  rules:
+    - host: prd2-www.example.com.br
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: prd2-www-example
+              servicePort: 3000
